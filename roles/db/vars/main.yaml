@@ -1,0 +1,4 @@
+# my_root_password: ExpenseApp@1
+login_host: db.vasanthreddy.space
+login_user: root
+component: db

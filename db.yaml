@@ -1,0 +1,7 @@
+- name: "{{component}}"
+  hosts: "{{component}}"
+  vars_files:
+  - credentials.yaml
+  become: yes
+  roles:
+    - "{{component}}"

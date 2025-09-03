@@ -1,0 +1,3 @@
+backend_API: backend.vasanthreddy.space
+APP_LOCATION: /usr/share/nginx/html
+component: frontend

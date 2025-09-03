@@ -1,0 +1,5 @@
+- name: frontend configuration
+  hosts: frontend.vasanthreddy.space
+  become: yes
+  roles: 
+    - frontend

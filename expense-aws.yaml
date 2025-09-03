@@ -1,0 +1,34 @@
+- name: create ec2 and route 53
+  hosts: localhost
+  vars:
+    zone: vasanthreddy.space
+    instances:
+    - db
+    - backend
+    - frontend
+  tasks: 
+    - name: ec2 instances creation
+      amazon.aws.ec2_instance:
+        name: "{{item}}"
+        instance_type: t2.micro
+        security_group: allow-everything
+        image_id: ami-090252cbe067a9e58
+        tags:
+          Name: "{{item}}"
+      loop: "{{instances}}"
+      register: ec2_output
+
+    - name: output of ec2
+      ansible.builtin.debug:
+        msg: "the output is : {{ec2_output}}"
+    
+    - name: route53
+      amazon.aws.route53:
+        state: present
+        zone: "{{zone}}"
+        record: "{{item}}.{{zone}}"
+        type: A
+        value: "{{item.instances.private_ip_address}}"
+        overwrite: yes
+        ttl: 1
+      loop: "{{ec2_output.results.instances}}"

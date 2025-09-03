@@ -1,0 +1,10 @@
+- name: install few packages
+  hosts: all
+  become: yes
+  tasks:
+    - name: install nginx , mysql
+      ansible.builtin.dnf: 
+        name: postfix
+        state: latest
+      
+     
