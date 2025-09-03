@@ -1,0 +1,4 @@
+login_user: root
+login_password: ExpenseApp@1
+login_host: db-dev.vasanthreddy.space
+DB_HOST: db-dev.vasanthreddy.space
