@@ -2,3 +2,4 @@ login_user: root
 login_password: ExpenseApp1
 login_host: db-dev.vasanthreddy.space
 DB_HOST: db-dev.vasanthreddy.space
+BACKEND_API_URL: backend.app-dev.vasanthreddy.space
