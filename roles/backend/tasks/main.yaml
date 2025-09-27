@@ -37,12 +37,12 @@
   #     src: /tmp/backend.zip
   #     dest: /app
       
-  - name: installing the dependencies in the /app directory
-    tags: 
-    - deployment
-    ansible.builtin.command: npm install
-    args:
-      chdir: /app
+  # - name: installing the dependencies in the /app directory
+  #   tags: 
+  #   - deployment
+  #   ansible.builtin.command: npm install
+  #   args:
+  #     chdir: /app
 
   - name: installing mysql db depensencies
     ansible.builtin.pip:

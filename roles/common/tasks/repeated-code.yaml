@@ -12,10 +12,15 @@
     path: "{{APP_LOCATION}}"
     state: directory
 
-- name: download the code
-  tags:
-  - deployment
+# - name: download the code
+#   tags:
+#   - deployment
+#   ansible.builtin.unarchive:
+#     src: https://expense-builds.s3.us-east-1.amazonaws.com/expense-{{component}}-v2.zip
+#     dest: "{{APP_LOCATION}}"
+#     remote_src: yes
+- name: download and extractcode
   ansible.builtin.unarchive:
-    src: https://expense-builds.s3.us-east-1.amazonaws.com/expense-{{component}}-v2.zip
-    dest: "{{APP_LOCATION}}"
+    src: "http://{{ nexus_url }}/repository/{{ component }}/com/expense/{{ component }}/{{ app_VERSION }}/{{ component }}-{{ app_VERSION }}.zip"
+    dest: "{{ APP_LOCATION }}"
     remote_src: yes
